@@ -4,9 +4,17 @@
 <head>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <link rel="stylesheet" href="custom.css">
+
+    <style>
+        #gameScreen {
+            border: 2px solid white;
+            background: #181818;
+        }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahibjot Singh</title>
+    <title>Snake</title>
 </head>
 
 <body>
@@ -17,12 +25,15 @@
     <a href="snake.html"><button>Snake</button></a>
 
     <h1>Sahibjot Singh</h1>
-    <p>Welcome to my personal website!</p>
+    <p>Snake Game</p>
   </header>
 
   <main>
-    <h3>Hello, I'm Sahibjot Singh, someone who is very interested in computer programming, electronics and mathematics.</h3>
-    <p>This website is currently under construction</p>
+    <div style="text-align: center">
+        <canvas id="gameScreen", width="625", height="625"></canvas>
+    </div>
+    
+    <script src="snake.js"></script>
   </main>
 
   <footer>
