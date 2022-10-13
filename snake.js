@@ -101,6 +101,7 @@ function main(timestamp) {
         context.fillStyle = "white";
         context.textAlign = "center";
         context.fillText("Press any key to replay", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+        context.fillText("Your score: " + score, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 32);
     } else {
         // Handles input
         document.addEventListener("keydown", event => {
