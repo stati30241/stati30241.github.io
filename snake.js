@@ -5,6 +5,8 @@ let context = canvas.getContext("2d");
 // Screen
 const SCREEN_WIDTH = 625;
 const SCREEN_HEIGHT = 625;
+
+// Game
 let lastTime = 0.0;
 let timer = 0.0;
 const tickSpeed = 100;
@@ -23,6 +25,7 @@ const pixelSize = 25;
 let snake = [ new vec2d(125, 325), new vec2d(100, 325), new vec2d(75, 325) ];
 let snakeDir = 0;
 let food = new vec2d(325, 325);
+let score = 0;
 
 // Generates food
 function generateFood() {
@@ -30,7 +33,7 @@ function generateFood() {
         food.x = Math.floor(Math.random() * 25 ) * 25;
         food.y = Math.floor(Math.random() * 25 ) * 25;
 
-        if (food.x != snake[0].x && food.y != snake[0].y) return;
+        if (!(food.x == snake[0].x && food.y == snake[0].y)) return;
     }
 }
 
@@ -72,6 +75,7 @@ function tick(deltaTime) {
     if (snake[0].x == food.x && snake[0].y == food.y) {
         generateFood();
         snake.push(new vec2d(snake[snake.length - 1].x, snake[snake.length - 1].y));
+        score++;
     }
 }
 
@@ -84,6 +88,7 @@ function main(timestamp) {
                 gameOver = false;
                 snake = [ new vec2d(125, 325), new vec2d(100, 325), new vec2d(75, 325) ];
                 snakeDir = 0;
+                score = 0;
                 food = new vec2d(325, 325);
             }
         });
@@ -101,16 +106,16 @@ function main(timestamp) {
         document.addEventListener("keydown", event => {
             switch (event.key) {
             case "w":
-                snakeDir = 3;
+                if (snakeDir != 1) snakeDir = 3;
                 break;
             case "a":
-                snakeDir = 2;
+                if (snakeDir != 0) snakeDir = 2;
                 break;
             case "s":
-                snakeDir = 1;
+                if (snakeDir != 3) snakeDir = 1;
                 break;
             case "d":
-                snakeDir = 0;
+                if (snakeDir != 2) snakeDir = 0;
                 break;
             }
         });
@@ -129,13 +134,18 @@ function main(timestamp) {
         // Clears the screen
         context.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-        // Render
+        // Render the snake and the food
         context.fillStyle = "#51c83c";
         for (const snakeCell of snake) {
             context.fillRect(snakeCell.x, snakeCell.y, pixelSize, pixelSize);
         }
         context.fillStyle = "#be0f2c";
         context.fillRect(food.x, food.y, pixelSize, pixelSize);
+
+        // Renders the score text
+        context.font = "20px Arial";
+        context.fillStyle = "white";
+        context.fillText("Score: " + score, 530, 35);
     }
 
     requestAnimationFrame(main);
