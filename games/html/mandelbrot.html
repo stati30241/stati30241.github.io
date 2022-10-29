@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="../../custom.css">
+
+    <style>
+        #gameScreen {
+            border: 2px solid white;
+            background: #181818;
+        }
+    </style>
+
+    <img id="image_mandelbrot" src="../static/mandelbrot 750x500.bmp" style="display:none">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandelbrot</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../about.html">About</a>
+      <a href="../../projects.html">Projects</a>
+      <a href="../../games.html">Games</a>
+    </nav>
+
+    <h1>Interactive Mandelbrot Visualizer</h1>
+  </header>
+
+  <main>
+    <div style="text-align: center">
+        <canvas id="gameScreen", width="750", height="500"></canvas>
+    </div>
+    <p>Still not finished (if you couldn't tell)</p>
+    
+    <script src="../js/mandelbrot.js"></script>
+  </main>
+
+  <footer>
+    <p>This website was created using <a href="https://simplecss.org">Simple.css</a></p>
+  </footer>
+</body>
+
+</html>
