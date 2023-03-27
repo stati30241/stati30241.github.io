@@ -59,12 +59,18 @@ function tick(deltaTime) {
     case 3:
         snake[0].y -= pixelSize;
     }
-
+    
+    /*
     // Wraps the snake around if it goes out of bounds
     if (snake[0].x < 0) snake[0].x = SCREEN_WIDTH - pixelSize;
     if (snake[0].y < 0) snake[0].y = SCREEN_HEIGHT - pixelSize;
     snake[0].x %= SCREEN_WIDTH;
     snake[0].y %= SCREEN_HEIGHT;
+    */
+    
+    // Checks for collision with the walls
+    if (snake[0].x < 0 || snake[0].x + pixelSize > SCREEN_WIDTH ||
+        snake[0].y < 0 || snake[0].y + pixelSize > SCREEN_HEIGHT) gameOver = true;
 
     // Checks for collision with itself
     for (let i = 1; i < snake.length; ++i) {
