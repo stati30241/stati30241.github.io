@@ -1,3 +1,26 @@
 :root {
-    --accent: #ff0000;
+    --bg: #1e1e32;
+    --accent-bg: #32325a;
+    --text: #f3f3f3;
+    --text-light: #cbcbcb;
+    --border: #f1c5c5;
+    --accent: #f25757;
+    --accent-light: #eb8383;
+    --code: #ececec;
+    --preformatted: #78f0c8;
+    --marked: #eb8383;
+    --disabled: #010101;
+}
+
+fadslk {
+    --bg: #212121;
+    --accent-bg: #2b2b2b;
+    --text: #dcdcdc;
+    --text-light: #ababab;
+    --border: #666;
+    --accent: #ffb300;
+    --accent-light: #ffecb3;
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
 }
